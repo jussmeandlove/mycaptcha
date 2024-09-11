@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Not Ignoring Me CAPTCHA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .captcha-box {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="captcha-box">
+        <input type="checkbox" id="captchaCheck" onclick="checkProof()">
+        <label for="captchaCheck">You're not ignoring me</label>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkProof() {
+            let captchaBox = document.getElementById('captchaCheck');
+            let result = document.getElementById('result');
+
+            if (captchaBox.checked) {
+                let proofSent = prompt("Did you send any proof? (yes/no)");
+
+                if (proofSent.toLowerCase() === "yes") {
+                    result.innerHTML = "You have passed the test and you're not ignoring me!";
+                    result.style.color = "green";
+                } else {
+                    result.innerHTML = "You failed the test, please send proof!";
+                    result.style.color = "red";
+                }
+            } else {
+                result.innerHTML = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
