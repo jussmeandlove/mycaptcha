@@ -35,6 +35,11 @@
     </div>
 
     <script>
+        // Reset the checkbox to unchecked when the page loads
+        window.onload = function() {
+            document.getElementById('captchaCheck').checked = false;
+        }
+
         function checkProof() {
             let captchaBox = document.getElementById('captchaCheck');
             let result = document.getElementById('result');
